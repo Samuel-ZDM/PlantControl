@@ -14,7 +14,6 @@ import { Buffer } from "buffer"
 import { Dimensions } from 'react-native'
 
 
-
 export default class BlePage extends React.Component {
   constructor() {
     super()
@@ -30,6 +29,8 @@ export default class BlePage extends React.Component {
     this.deviceprefix = "Device";
     this.devicesuffix_dx = "DX";
     this.sensors = "6E400003-B5A3-F393-E0A9-E50E24DCCA9E" //: "TempHu"
+    this.keyDevice = 2678;
+    this.keySend = 3456;
 
 
   }
@@ -220,19 +221,21 @@ export default class BlePage extends React.Component {
         return
       }
       this.updateValue(characteristic.uuid, characteristic.value)
+      console.log("Cryptooo")
+      console.log(characteristic.value)
       console.log(Buffer.from(characteristic.value, 'base64').toString('ascii'))
 
       var valuesString = Buffer.from(characteristic.value, 'base64').toString('ascii')
 
       var splitValues = valuesString.split(',')
       console.log("Valores recebidos")
-      console.log(splitValues[0])
+      console.log(splitValues[0]/this.keyDevice)
       this.setState({
-        temperature: splitValues[0]
+        temperature: splitValues[0]/ this.keyDevice
       })
-      console.log(splitValues[1])
+      console.log(splitValues[1]/ this.keyDevice)
       this.setState({
-        humidity: splitValues[1]
+        humidity: splitValues[1]/ this.keyDevice
       })
 
     })
@@ -256,16 +259,23 @@ export default class BlePage extends React.Component {
 
     const device = this.state.myDevice;
     //var stateLed = false;
+   
+  
 
     if (this.state.stateLed == true) {
       this.setState({
         stateLed: false
       })
-      this.manager.writeCharacteristicWithResponseForDevice(device.id, '6E400001-B5A3-F393-E0A9-E50E24DCCA9E', '6E400002-B5A3-F393-E0A9-E50E24DCCA9E', 'MA==')
+      const test = (0 + this.keySend) * this.keyDevice;
+      console.log("Valor do teste");
+      console.log(test);
+      //console.log(Buffer.from(test.toString(), 'ascii').toString('base64'));
+      this.manager.writeCharacteristicWithResponseForDevice(device.id, '6E400001-B5A3-F393-E0A9-E50E24DCCA9E', '6E400002-B5A3-F393-E0A9-E50E24DCCA9E', Buffer.from(test.toString(), 'ascii').toString('base64'))
         .then((characteristic) => {
           console.log(characteristic.value);
           return
         })
+        
 
         .catch((error) => {
           console.log(error.message)
@@ -274,7 +284,9 @@ export default class BlePage extends React.Component {
       this.setState({
         stateLed: true
       })
-      this.manager.writeCharacteristicWithResponseForDevice(device.id, '6E400001-B5A3-F393-E0A9-E50E24DCCA9E', '6E400002-B5A3-F393-E0A9-E50E24DCCA9E', 'MQ==')
+
+      const test = (1 + this.keySend) * this.keyDevice;
+      this.manager.writeCharacteristicWithResponseForDevice(device.id, '6E400001-B5A3-F393-E0A9-E50E24DCCA9E', '6E400002-B5A3-F393-E0A9-E50E24DCCA9E', Buffer.from(test.toString(), 'ascii').toString('base64'))
         .then((characteristic) => {
           console.log(characteristic.value);
           return
@@ -312,8 +324,7 @@ export default class BlePage extends React.Component {
     const isLoggedIn = this.state.stateLed;
     var temp = this.state.temperature;
     var umi = this.state.humidity;
-    console.log("Valor umidade")
-    console.log(umi)
+  
     return (
 
 

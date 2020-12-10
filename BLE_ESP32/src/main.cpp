@@ -12,6 +12,8 @@
 
 #include "DHT.h"
 
+#include "mbedtls/aes.h"
+
 #include <iostream>
 #include <string>
 
@@ -26,6 +28,15 @@ const int LED = 12; // Could be different depending on the dev board. I used the
 int humidity = 11;
 int temperature = 22;
 
+char str[16];
+
+int testKey = 2678;
+int keySend = 3456;
+
+char *key = "abcdefghijklmnop";
+
+unsigned char cipherTextOutput[16];
+
 // Veja o link seguinte se quiser gerar seus próprios UUIDs:
 // https://www.uuidgenerator.net/
 
@@ -34,6 +45,11 @@ int temperature = 22;
 #define DHTDATA_CHAR_UUID "6E400003-B5A3-F393-E0A9-E50E24DCCA9E"
 
 DHT dht(DHTPIN, DHTTYPE);
+
+int descode(int valor, int keysend, int testKey)
+{
+  return valor/testKey - keysend;
+}
 
 class MyServerCallbacks : public BLEServerCallbacks
 {
@@ -68,19 +84,25 @@ class MyCallbacks : public BLECharacteristicCallbacks
       Serial.println("*********");
     }
 
+    Serial.print("Valor convertido");
+    Serial.println(atoi( rxValue.c_str() ));
+    Serial.println(descode(atoi( rxValue.c_str()), keySend, testKey ));
+
+
     // Processa o caracter recebido do aplicativo. Se for A acende o LED. B apaga o LED
-    if (rxValue.find("0") != -1)
+    if (!descode(atoi( rxValue.c_str()), keySend, testKey ))
     {
       Serial.println("Turning OFF!");
       digitalWrite(LED, LOW);
     }
-    else if (rxValue.find("1") != -1)
+    else if (descode(atoi( rxValue.c_str()), keySend, testKey ))
     {
       Serial.println("Turning ON!");
       digitalWrite(LED, HIGH);
     }
   }
 };
+
 
 void setup()
 {
@@ -121,7 +143,6 @@ void setup()
   pServer->getAdvertising()->start();
   Serial.println("Esperando um cliente se conectar...");
 
-  
   humidity = dht.readHumidity();
 
   temperature = dht.readTemperature();
@@ -138,6 +159,26 @@ void setup()
   Serial.print("Temperatura: ");
   Serial.print(temperature);
   Serial.println(" *C");
+
+  // char humidityString[2];
+  // char temperatureString[2];
+  // dtostrf(humidity, 1, 2, humidityString);
+  // dtostrf(temperature, 1, 2, temperatureString);
+
+  // char dhtDataString[16];
+  // sprintf(dhtDataString, "%d,%d", temperature, humidity);
+
+  // encrypt(dhtDataString, key, cipherTextOutput);
+
+  // Serial.print("Valor cripoooo ");
+  // for (int i = 0; i < 16; i++)
+  // {
+
+  //   char str[3];
+
+  //   sprintf(str, "%02x", (int)cipherTextOutput[i]);
+  //   Serial.print(str);
+  // }
 }
 
 void loop()
@@ -162,6 +203,9 @@ void loop()
       Serial.println(" *C");
     }
 
+    humidity = humidity * testKey;
+    temperature = temperature * testKey;
+
     char humidityString[2];
     char temperatureString[2];
     dtostrf(humidity, 1, 2, humidityString);
@@ -170,12 +214,16 @@ void loop()
     char dhtDataString[16];
     sprintf(dhtDataString, "%d,%d", temperature, humidity);
 
-    pCharacteristic->setValue(dhtDataString);
+    Serial.println("Valor do dhData");
+    Serial.println(dhtDataString);
+ 
 
-    pCharacteristic->notify(); // Envia o valor para o aplicativo!
-    Serial.print("*** Dado enviado: ");
-    Serial.print(dhtDataString);
-    Serial.println(" ***");
-  }
-  delay(5000);
+  pCharacteristic->setValue(dhtDataString);
+
+  pCharacteristic->notify(); // Envia o valor para o aplicativo!
+  Serial.print("*** Dado enviado: ");
+  Serial.print(str);
+  Serial.println(" ***");
+}
+delay(5000);
 }
