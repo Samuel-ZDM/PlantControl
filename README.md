@@ -25,6 +25,8 @@ The illustration of the initial screens initially thought are: the registration 
 
 <img src = "Images/telas.png" width = "600" heigth="700"> 
 
+Connect Screen            |  Data Screen
+:-------------------------:|:-------------------------:
+<img src = "Images/tela1.png" width = "600" heigth="700">   |  <img src = "Images/tela2.png" width = "600" heigth="700">
 
-<img src = "Images/tela1.png" width = "300" heigth="700"> 
-<img src = "Images/tela2.png" width = "300" heigth="700"> 
+ 
