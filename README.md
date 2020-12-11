@@ -12,6 +12,7 @@ The pump can also be activated manually.
 
 - [Screens React Native](#screns-react-native)
 - [Circuit with ESP32](#circuit-with-ESP32)
+- [Operation](#Operation)
 
 
 <!-- /TOC -->
@@ -33,4 +34,8 @@ Connect Screen            |  Data Screen
 
 Circuit that collects temperature and relative humidity data, using DHT11 and a led to simulate a water pump.
 
-<img src = "Images/telas.png" width = "600" heigth="700"> 
+<img src = "Images/circuito.jpg" width = "600" heigth="700"> 
+
+## Operation
+
+![Alt Text](Images/gifT.gif)
