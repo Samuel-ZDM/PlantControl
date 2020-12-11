@@ -229,13 +229,13 @@ export default class BlePage extends React.Component {
 
       var splitValues = valuesString.split(',')
       console.log("Valores recebidos")
-      console.log(splitValues[0]/this.keyDevice)
+      console.log((splitValues[0]/this.keyDevice))
       this.setState({
-        temperature: splitValues[0]/ this.keyDevice
+        temperature: (splitValues[0]/ this.keyDevice)
       })
-      console.log(splitValues[1]/ this.keyDevice)
+      console.log((splitValues[1]/ this.keyDevice))
       this.setState({
-        humidity: splitValues[1]/ this.keyDevice
+        humidity: (splitValues[1]/ this.keyDevice)
       })
 
     })

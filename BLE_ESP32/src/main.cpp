@@ -203,8 +203,8 @@ void loop()
       Serial.println(" *C");
     }
 
-    humidity = humidity * testKey;
-    temperature = temperature * testKey;
+    humidity = (humidity * testKey);
+    temperature = (temperature * testKey);
 
     char humidityString[2];
     char temperatureString[2];
