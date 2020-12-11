@@ -11,7 +11,7 @@ The pump can also be activated manually.
 **Content:**
 
 - [Screens React Native](#screns-react-native)
-- [Schematic](#schematic)
+
 
 
 <!-- /TOC -->
@@ -24,3 +24,7 @@ The pump can also be activated manually.
 The illustration of the initial screens initially thought are: the registration and login screens, the search screens for a new device and the information screen for the selected device.
 
 <img src = "Images/telas.png" width = "600" heigth="700"> 
+
+
+<img src = "Images/tela1.png" width = "300" heigth="700"> 
+<img src = "Images/tela2.png" width = "300" heigth="700"> 
