@@ -1,0 +1,105 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.plantcontrol"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+7-->/home/samuelzdm/Documentos/PlantControl/android/app/src/main/AndroidManifest.xml:11:5-13:40
+8        android:minSdkVersion="18"
+8-->/home/samuelzdm/Documentos/PlantControl/android/app/src/main/AndroidManifest.xml:12:9-35
+9        android:targetSdkVersion="29" />
+9-->/home/samuelzdm/Documentos/PlantControl/android/app/src/main/AndroidManifest.xml:13:9-38
+10
+11    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+11-->/home/samuelzdm/Documentos/PlantControl/android/app/src/debug/AndroidManifest.xml:5:5-77
+11-->/home/samuelzdm/Documentos/PlantControl/android/app/src/debug/AndroidManifest.xml:5:22-75
+12    <uses-permission android:name="android.permission.BLUETOOTH" />
+12-->/home/samuelzdm/Documentos/PlantControl/android/app/src/main/AndroidManifest.xml:5:5-67
+12-->/home/samuelzdm/Documentos/PlantControl/android/app/src/main/AndroidManifest.xml:5:22-65
+13    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+13-->/home/samuelzdm/Documentos/PlantControl/android/app/src/main/AndroidManifest.xml:6:5-73
+13-->/home/samuelzdm/Documentos/PlantControl/android/app/src/main/AndroidManifest.xml:6:22-71
+14
+15    <!--
+16       If your app targets Android 9 or lower, you can declare
+17       ACCESS_COARSE_LOCATION instead.
+18    -->
+19    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+19-->/home/samuelzdm/Documentos/PlantControl/android/app/src/debug/AndroidManifest.xml:14:5-79
+19-->/home/samuelzdm/Documentos/PlantControl/android/app/src/debug/AndroidManifest.xml:14:22-76
+20
+21    <uses-feature
+21-->/home/samuelzdm/Documentos/PlantControl/android/app/src/main/AndroidManifest.xml:9:5-89
+22        android:name="android.hardware.bluetooth_le"
+22-->/home/samuelzdm/Documentos/PlantControl/android/app/src/main/AndroidManifest.xml:9:19-63
+23        android:required="true" />
+23-->/home/samuelzdm/Documentos/PlantControl/android/app/src/main/AndroidManifest.xml:9:64-87
+24
+25    <uses-permission android:name="android.permission.INTERNET" />
+25-->/home/samuelzdm/Documentos/PlantControl/android/app/src/main/AndroidManifest.xml:4:5-67
+25-->/home/samuelzdm/Documentos/PlantControl/android/app/src/main/AndroidManifest.xml:4:22-64
+26    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+26-->/home/samuelzdm/Documentos/PlantControl/android/app/src/main/AndroidManifest.xml:7:5-80
+26-->/home/samuelzdm/Documentos/PlantControl/android/app/src/main/AndroidManifest.xml:7:22-78
+27
+28    <uses-permission-sdk-23 android:name="android.permission.ACCESS_FINE_LOCATION" />
+28-->/home/samuelzdm/Documentos/PlantControl/android/app/src/main/AndroidManifest.xml:8:5-85
+28-->/home/samuelzdm/Documentos/PlantControl/android/app/src/main/AndroidManifest.xml:8:29-83
+29
+30    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+30-->[com.facebook.flipper:flipper:0.54.0] /root/.gradle/caches/transforms-2/files-2.1/b2425b1507d7a29efe63293643bd5223/flipper-0.54.0/AndroidManifest.xml:16:5-76
+30-->[com.facebook.flipper:flipper:0.54.0] /root/.gradle/caches/transforms-2/files-2.1/b2425b1507d7a29efe63293643bd5223/flipper-0.54.0/AndroidManifest.xml:16:22-73
+31
+32    <uses-permission-sdk-23 android:name="android.permission.ACCESS_COARSE_LOCATION" />
+32-->[com.github.Polidea:MultiPlatformBleAdapter:0.1.7] /root/.gradle/caches/transforms-2/files-2.1/93003b549c2add2273e78f5151c09712/jetified-MultiPlatformBleAdapter-0.1.7/AndroidManifest.xml:14:5-88
+32-->[com.github.Polidea:MultiPlatformBleAdapter:0.1.7] /root/.gradle/caches/transforms-2/files-2.1/93003b549c2add2273e78f5151c09712/jetified-MultiPlatformBleAdapter-0.1.7/AndroidManifest.xml:14:29-85
+33
+34    <application
+34-->/home/samuelzdm/Documentos/PlantControl/android/app/src/main/AndroidManifest.xml:15:5-34:19
+35        android:name="com.plantcontrol.MainApplication"
+35-->/home/samuelzdm/Documentos/PlantControl/android/app/src/main/AndroidManifest.xml:16:7-38
+36        android:allowBackup="false"
+36-->/home/samuelzdm/Documentos/PlantControl/android/app/src/main/AndroidManifest.xml:20:7-34
+37        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+37-->[androidx.core:core:1.1.0] /root/.gradle/caches/transforms-2/files-2.1/47eb2a7dc800c008fb3b9ebaa8a4b135/core-1.1.0/AndroidManifest.xml:24:18-86
+38        android:debuggable="true"
+39        android:icon="@mipmap/ic_launcher"
+39-->/home/samuelzdm/Documentos/PlantControl/android/app/src/main/AndroidManifest.xml:18:7-41
+40        android:label="@string/app_name"
+40-->/home/samuelzdm/Documentos/PlantControl/android/app/src/main/AndroidManifest.xml:17:7-39
+41        android:roundIcon="@mipmap/ic_launcher_round"
+41-->/home/samuelzdm/Documentos/PlantControl/android/app/src/main/AndroidManifest.xml:19:7-52
+42        android:theme="@style/AppTheme"
+42-->/home/samuelzdm/Documentos/PlantControl/android/app/src/main/AndroidManifest.xml:21:7-38
+43        android:usesCleartextTraffic="true" >
+43-->/home/samuelzdm/Documentos/PlantControl/android/app/src/debug/AndroidManifest.xml:7:18-53
+44        <activity
+44-->/home/samuelzdm/Documentos/PlantControl/android/app/src/main/AndroidManifest.xml:22:7-32:18
+45            android:name="com.plantcontrol.MainActivity"
+45-->/home/samuelzdm/Documentos/PlantControl/android/app/src/main/AndroidManifest.xml:23:9-37
+46            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
+46-->/home/samuelzdm/Documentos/PlantControl/android/app/src/main/AndroidManifest.xml:25:9-86
+47            android:label="@string/app_name"
+47-->/home/samuelzdm/Documentos/PlantControl/android/app/src/main/AndroidManifest.xml:24:9-41
+48            android:launchMode="singleTask"
+48-->/home/samuelzdm/Documentos/PlantControl/android/app/src/main/AndroidManifest.xml:26:9-40
+49            android:windowSoftInputMode="adjustResize" >
+49-->/home/samuelzdm/Documentos/PlantControl/android/app/src/main/AndroidManifest.xml:27:9-51
+50            <intent-filter>
+50-->/home/samuelzdm/Documentos/PlantControl/android/app/src/main/AndroidManifest.xml:28:9-31:25
+51                <action android:name="android.intent.action.MAIN" />
+51-->/home/samuelzdm/Documentos/PlantControl/android/app/src/main/AndroidManifest.xml:29:13-65
+51-->/home/samuelzdm/Documentos/PlantControl/android/app/src/main/AndroidManifest.xml:29:21-62
+52
+53                <category android:name="android.intent.category.LAUNCHER" />
+53-->/home/samuelzdm/Documentos/PlantControl/android/app/src/main/AndroidManifest.xml:30:13-73
+53-->/home/samuelzdm/Documentos/PlantControl/android/app/src/main/AndroidManifest.xml:30:23-70
+54            </intent-filter>
+55        </activity>
+56        <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+56-->/home/samuelzdm/Documentos/PlantControl/android/app/src/main/AndroidManifest.xml:33:7-84
+56-->/home/samuelzdm/Documentos/PlantControl/android/app/src/main/AndroidManifest.xml:33:17-81
+57    </application>
+58
+59</manifest>
